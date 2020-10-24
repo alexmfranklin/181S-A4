@@ -1,5 +1,5 @@
 package password;
-
+import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -75,8 +75,11 @@ public class PasswordStrength {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		if (args.length < 1)
-			System.out.println("Incorrect number of arguments");
-		PasswordStrength checker = new PasswordStrength(args[0]);
+		Scanner scanner = new Scanner(System.in);
+		String password = scanner.nextLine();
+		while (!password.equals("done")) {
+			PasswordStrength checker = new PasswordStrength(password);
+			password = scanner.nextLine();
+		}
 	}
 }
